@@ -96,6 +96,9 @@ def parse_input_args():
         '--host', dest='host', type=str,
         help='Server port')
     root_parser.add_argument(
+        '--frontend-host', dest='frontend_host', type=str,
+        help='Frontend Host for API requests')
+    root_parser.add_argument(
         '-p', '--port', dest='port', type=int,
         help='Server port')
     root_parser.add_argument(

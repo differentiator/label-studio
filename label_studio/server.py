@@ -1021,6 +1021,7 @@ def main():
         # set host name
         host = input_args.host or config.get('host', 'localhost')
         port = input_args.port or config.get('port', 8080)
+        frontend_host = input_args.frontend_host or host
 
         # ssl certificate and key
         cert_file = input_args.cert_file or config.get('cert')
@@ -1039,7 +1040,7 @@ def main():
                   '\n****************\n')
 
         set_web_protocol(config.get('protocol', 'http://'))
-        set_full_hostname(get_web_protocol() + host.replace('0.0.0.0', 'localhost') + ':' + str(port))
+        set_full_hostname(get_web_protocol() + frontend_host + ':' + str(port))
 
         start_browser('http://localhost:' + str(port), input_args.no_browser)
         if input_args.use_gevent:
